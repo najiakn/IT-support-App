@@ -5,17 +5,18 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@ToString
 public class Equipement {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private   int id;
-    private  String nom;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private String nom;
     private String description;
     private String marque;
     private String model;

@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 public class EquipementServiceImpl implements EquipementService {
+
     @Autowired
     private EquipementRepository equipementRepository;
 
@@ -22,9 +23,8 @@ public class EquipementServiceImpl implements EquipementService {
 
     @Override
     public EquipementDto create(EquipementDto equipementDto) {
-       Equipement equipement = equipementMapper.toEntity(equipementDto);
-       Equipement savedEquipement=equipementRepository.save(equipement);
-       return  equipementMapper.toDTO(savedEquipement);
+        var equipment = equipementMapper.toEntity(equipementDto);
+        return equipementMapper.toDTO(equipementRepository.save(equipment));
     }
 
 

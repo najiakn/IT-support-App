@@ -8,8 +8,8 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface AdminMapper {
-    Admin toEntity(AdminDto DTO);
+    Admin toEntity(AdminDto dto);
     AdminDto toDTO(Admin entity);
-    List<AdminDto> toDTOList(List<Admin> admin);
+    List<AdminDto> toDTOList(List<Admin> admins);
     List<Admin> toEntityList(List<AdminDto> adminDtos);
 }
