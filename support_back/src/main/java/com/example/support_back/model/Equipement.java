@@ -1,14 +1,11 @@
 package com.example.support_back.model;
 
-import com.example.support_back.model.Enums.Etat_Equipement;
-import com.example.support_back.model.Enums.Ticket_statut;
+import com.example.support_back.Enums.Etat_Equipement;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
-import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

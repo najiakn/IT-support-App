@@ -1,7 +1,6 @@
 package com.example.support_back.model;
 
-import com.example.support_back.model.Enums.Etat_panne;
-import com.example.support_back.model.Enums.Ticket_statut;
+import com.example.support_back.Enums.Etat_panne;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

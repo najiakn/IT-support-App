@@ -1,4 +1,4 @@
-package com.example.support_back.model.Enums;
+package com.example.support_back.Enums;
 
 public enum Etat_panne {
     detectee,
