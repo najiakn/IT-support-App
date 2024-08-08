@@ -1,9 +1,6 @@
 package com.example.support_back.controller;
 
-
-import com.example.support_back.dto.EquipementDto;
 import com.example.support_back.dto.PanneDto;
-import com.example.support_back.service.EquipementService;
 import com.example.support_back.service.PanneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +15,6 @@ public class PanneController {
     @Autowired
     private PanneService panneService;
 
-
     @PostMapping("/create-panne")
     public ResponseEntity<?> createPanne(@RequestBody PanneDto panneDto) {
         try {
@@ -28,8 +24,9 @@ public class PanneController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePanne(@PathVariable int id) {
+    public ResponseEntity<Void> deletePanne(@PathVariable("id") int id) {
         panneService.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -41,7 +38,7 @@ public class PanneController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PanneDto> getEquipementById(@PathVariable int id) {
+    public ResponseEntity<PanneDto> getPanneById(@PathVariable("id") int id) {
         PanneDto panneDto = panneService.getPanneById(id);
         if (panneDto != null) {
             return ResponseEntity.ok(panneDto);
@@ -51,7 +48,7 @@ public class PanneController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<PanneDto> updatePanne(@PathVariable int id, @RequestBody PanneDto panneDto) {
+    public ResponseEntity<PanneDto> updatePanne(@PathVariable("id") int id, @RequestBody PanneDto panneDto) {
         PanneDto updatePanne = panneService.update(id, panneDto);
         if (updatePanne != null) {
             return ResponseEntity.ok(updatePanne);
@@ -59,5 +56,4 @@ public class PanneController {
             return ResponseEntity.notFound().build();
         }
     }
-
 }

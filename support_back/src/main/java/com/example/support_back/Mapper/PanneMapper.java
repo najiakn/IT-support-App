@@ -1,9 +1,7 @@
 package com.example.support_back.Mapper;
 
 
-import com.example.support_back.dto.HistoriqueDto;
 import com.example.support_back.dto.PanneDto;
-import com.example.support_back.model.Historique;
 import com.example.support_back.model.Panne;
 import org.mapstruct.Mapper;
 
