@@ -45,7 +45,7 @@ public class EquipementServiceImpl implements EquipementService {
 
 
     @Override
-    public EquipementDto getUserById(int id) {
+    public EquipementDto getEquipementById(int id) {
         Optional<Equipement> equipement = equipementRepository.findById(id);
         return equipement.map(equipementMapper::toDTO).orElse(null);
     }

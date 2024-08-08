@@ -11,6 +11,6 @@ public interface EquipementService {
     EquipementDto create(EquipementDto equipementDto);
     void delete(int id);
     List<EquipementDto> getAll();
-    EquipementDto getUserById(int id);
+    EquipementDto getEquipementById(int id);
     EquipementDto update(int id, EquipementDto equipementDto);
 }

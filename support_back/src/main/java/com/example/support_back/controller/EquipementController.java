@@ -17,16 +17,17 @@ public class EquipementController {
     private EquipementService equipementService;
 
     @PostMapping("/create-equipment")
-    public ResponseEntity<?> createEquipment(@RequestBody EquipementDto equipmentDto) {
+    public ResponseEntity<?> createEquipment(@RequestBody EquipementDto equipementDto) {
         try {
-            var equipment = equipementService.create(equipmentDto);
+            var equipment = equipementService.create(equipementDto);
             return ResponseEntity.status(HttpStatus.CREATED).body(equipment);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
         }
     }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEquipement(@PathVariable int id) {
+    public ResponseEntity<Void> deleteEquipement(@PathVariable("id") int id) {
         equipementService.delete(id);
         return ResponseEntity.noContent().build();
     }
@@ -38,8 +39,8 @@ public class EquipementController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EquipementDto> getEquipementById(@PathVariable int id) {
-        EquipementDto equipement = equipementService.getUserById(id);
+    public ResponseEntity<EquipementDto> getEquipementById(@PathVariable("id") int id) {
+        EquipementDto equipement = equipementService.getEquipementById(id);
         if (equipement != null) {
             return ResponseEntity.ok(equipement);
         } else {
@@ -48,7 +49,7 @@ public class EquipementController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<EquipementDto> updateEquipement(@PathVariable int id, @RequestBody EquipementDto equipementDto) {
+    public ResponseEntity<EquipementDto> updateEquipement(@PathVariable("id") int id, @RequestBody EquipementDto equipementDto) {
         EquipementDto updatedEquipement = equipementService.update(id, equipementDto);
         if (updatedEquipement != null) {
             return ResponseEntity.ok(updatedEquipement);

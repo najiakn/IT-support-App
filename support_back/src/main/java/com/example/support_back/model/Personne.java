@@ -1,5 +1,7 @@
 package com.example.support_back.model;
 
+import com.example.support_back.Enums.Etat_Equipement;
+import com.example.support_back.Enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,5 +21,6 @@ public  class Personne {
     private String nom;
     private String mail;
     private String password;
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }
