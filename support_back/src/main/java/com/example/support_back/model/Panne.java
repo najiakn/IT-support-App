@@ -2,13 +2,15 @@ package com.example.support_back.model;
 
 import com.example.support_back.Enums.Etat_panne;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
-@NoArgsConstructor
+
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@ToString
+@Data
 @Entity
 public class Panne {
     @Id
