@@ -93,6 +93,7 @@ public class AuthenticationService {
         );
         var user = personneRepository.findByMail(request.getMail())
                 .orElseThrow();
+        System.out.print(user);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
                 .token(jwtToken)
