@@ -140,7 +140,7 @@
                 </configuration>
             </plugin>
         </plugins>
-
+<finalName>docker_support</finalName>
     </build>
 
 </project>

@@ -1,0 +1,21 @@
+version: "3.4"
+services:
+  server:
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgresdb
+  postgresdb:
+    image: "postgres:latest"
+    restart: always
+    ports:
+      - 5433:5432
+    environment:
+      POSTGRES_DB: support
+      POSTGRES_PASSWORD: 1234
+    volumes:
+      - db:/var/lib/postgres
+volumes:
+  db:
