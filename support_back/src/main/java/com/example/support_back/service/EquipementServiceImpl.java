@@ -68,4 +68,6 @@ public class EquipementServiceImpl implements EquipementService {
             return null;
         }
     }
+
+
 }

@@ -1,9 +1,7 @@
 package com.example.support_back.service;
 
 import com.example.support_back.Mapper.TicketMapper;
-import com.example.support_back.dto.PanneDto;
 import com.example.support_back.dto.TicketDto;
-import com.example.support_back.model.Panne;
 import com.example.support_back.model.Ticket;
 import com.example.support_back.repository.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,5 +66,10 @@ public class TicketServiceImpl implements TicketService {
         } else {
             return null;
         }
+    }
+
+    public TicketDto getAllByUseID(int id){
+        Optional<Ticket> ticket = ticketRepository.findAllByuserId(id);
+        return ticket.map(ticketMapper::toDTO).orElse(null);
     }
 }

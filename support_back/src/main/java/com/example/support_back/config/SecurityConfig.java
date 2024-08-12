@@ -10,6 +10,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.http.HttpMethod.GET;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -25,12 +27,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers( "/api/v1/auth/authenticate/**","/api/v1/auth/registerAdmin/**").permitAll()
-                        .requestMatchers("/api/tickets/**").hasAuthority("ADMIN")
-                        .requestMatchers("/api/pannes/**","/api/equipements/**").hasAnyAuthority("TECHNICIEN","UTILISATEUR","ADMIN")
+                        .requestMatchers("/**").permitAll()
+                    //    .requestMatchers( "/api/v1/auth/authenticate/**","/api/v1/auth/registerAdmin/**").permitAll()
+                      //  .requestMatchers("/api/tickets/**","/api/equipements/**").hasAuthority("ADMIN")
+                        //.requestMatchers("/api/pannes/**").hasAuthority("ADMIN")
+                        //.requestMatchers("/api/equipements/all","/api/utilisateur/**").hasAuthority("UTILISATEUR")
+
                         //.requestMatchers("/api/pannes/**","/api/equipements/**").hasAuthority("TECHNICIEN")
-
-
                         .anyRequest()
                         .authenticated()
                 )
@@ -39,8 +42,6 @@ public class SecurityConfig {
                 )
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-
         return http.build();
     }
-
 }
