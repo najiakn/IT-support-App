@@ -12,6 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class EquipementDto {
+    private  int id;
     private String nom;
     private String description;
     private String marque;
