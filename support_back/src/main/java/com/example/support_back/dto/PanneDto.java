@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 public class PanneDto {
+        private  int id;
     private String description;
     private   String nom;
     private String priorite;

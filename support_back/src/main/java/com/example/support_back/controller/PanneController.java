@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/pannes")
+@CrossOrigin(origins = "*")
 public class PanneController {
     @Autowired
     private PanneService panneService;
